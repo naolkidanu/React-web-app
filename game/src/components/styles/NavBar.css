@@ -1,0 +1,112 @@
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;200;300;400;500;600;700&display=swap");
+
+.navbar {
+  background-color: #1d1d1d;
+  border: 2px solid #db005b;
+  line-height: 1.5rem;
+  overflow: hidden;
+}
+
+.nav__wrapper {
+  display: flex;
+  justify-content: space-evenly;
+  padding: 0 15px 0 15px;
+}
+
+.nav-menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.nav-list {
+  margin-right: 20px;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: white;
+  font-family: "Josefin Sans", sans-serif;
+  font-weight: 600;
+  text-shadow: 1px 1px 1px #db005b, -1px -1px 1px #00a0d2;
+  font-size: 15px;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  animation: glitch 0.5s infinite;
+}
+
+@keyframes glitch {
+  0%,
+  100% {
+    color: #ddd;
+  }
+
+  25% {
+    color: #db005b;
+  }
+
+  50% {
+    color: #00a0d2;
+  }
+
+  75% {
+    color: #67ffd9;
+  }
+}
+
+#back {
+  color: #db005b;
+  font-size: 17px;
+  transition: 0.4s ease-in-out;
+}
+
+#back:hover {
+  color: #ddd;
+}
+
+.year {
+  line-height: 30px;
+  font-weight: 300;
+}
+
+.mic__container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+@media screen and (max-width: 600px) {
+  .nav__wrapper {
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .nav-menu {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+    /* width: 100%; */
+  }
+
+  .nav-list {
+    margin: 10px 0;
+  }
+
+  .nav-link {
+    font-size: 18px;
+  }
+
+  /* Add styles for the hamburger icon */
+  .navbar .menu-icon {
+    display: block;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 10px;
+  }
+}
