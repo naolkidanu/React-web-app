@@ -1,17 +1,17 @@
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import axios from 'axios';
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import axios from "axios";
 
 export const initialState = {
   gameData: [],
   gameDetail: null,
   loading: false,
-  error: '',
+  error: "",
 };
 
 export const fetchGamesByTitle = createAsyncThunk(
-  'games/fetchGamesByTitle',
+  "games/fetchGamesByTitle",
   async (input) => {
-    const apiUrl = 'https://www.cheapshark.com/api/1.0/games';
+    const apiUrl = "https://www.cheapshark.com/api/1.0/games";
     const response = await axios.get(`${apiUrl}?title=${input}`);
     const transformedData = response.data.map((game) => ({
       id: game.gameID,
@@ -21,20 +21,20 @@ export const fetchGamesByTitle = createAsyncThunk(
     }));
 
     return transformedData;
-  },
+  }
 );
 
 export const fetchGameDetails = createAsyncThunk(
-  'games/fetchGameDetails',
+  "games/fetchGameDetails",
   async (gameId) => {
     const apiUrl = `https://www.cheapshark.com/api/1.0/games?id=${gameId}`;
     const response = await axios.get(apiUrl);
     return response.data;
-  },
+  }
 );
 
 export const fetchGamesAsync = createAsyncThunk(
-  'games/fetchGames',
+  "games/fetchGames",
   async (lowerPrice) => {
     const apiUrl = `https://www.cheapshark.com/api/1.0/deals?storeID=3&lowerPrice=${lowerPrice}`;
     const response = await axios.get(apiUrl);
@@ -48,11 +48,11 @@ export const fetchGamesAsync = createAsyncThunk(
       salePrice: game.salePrice,
       thumb: game.thumb,
     }));
-  },
+  }
 );
 
 const gameSlice = createSlice({
-  name: 'game',
+  name: "game",
   initialState,
   reducers: {},
   extraReducers: (builder) => {
